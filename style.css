@@ -29,6 +29,7 @@ h1 {
     flex-wrap: wrap;
     font-size: 20px;
     width: 80%;
+    min-width: 460px;
     flex-direction: column;  
     
 }
@@ -45,8 +46,9 @@ h1 {
 }
 
 .add:hover {
-    background-color: #54101d;
-    color: #b18653; 
+    background-color: #1a5a17;
+    color: #d8a565; 
+    font-size: 20px;
 }
 
 .first-shelf {
@@ -73,10 +75,58 @@ h1 {
 
 .book {
     background-color: #b18653;
-    min-width: calc(calc(100% / 4) - 20px);
+    width: calc(calc(100% / 4) - 20px);
+    min-width: 200px;
     height: 15rem;
-    border:5px #47596f solid;
+    border:5px #54101d solid;
     margin: 5px;
     box-sizing: border-box;
     overflow-wrap: break-word;
+    line-height: 1.8;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+.read-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: red;
+}
+
+dialog[open] {
+    background-color: #d5c5ae;
+    border: 10px #b18653 solid;
+    border-radius: 20px;
+    width: 50%;
+    height: 15rem;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.close {
+    padding: 7px;
+    font-size: 10px;
+    border-radius: 40%;
+    background-color: #54101d;
+    color: #d5c5ae;
+    border: none;
+}
+
+dialog::backdrop {
+    background-color: #f5d018;
+    opacity: .3;
 }
