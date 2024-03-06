@@ -3,6 +3,7 @@
 .color3 {color: #47596f}
 .color4 {color: #b18653}
 .color5 {color: #d5c5ae}
+.color6 {color: #1a5a17}
 
 * {
     padding: 0;
@@ -29,9 +30,8 @@ h1 {
     flex-wrap: wrap;
     font-size: 20px;
     width: 80%;
-    min-width: 460px;
-    flex-direction: column;  
-    
+    min-width: 677px;
+    flex-direction: column;   
 }
 
 .add {
@@ -58,6 +58,13 @@ h1 {
     flex-wrap: nowrap;
     box-sizing: border-box;
     border: 9px #4d3641 solid;
+    position: relative;
+}
+
+.kitty {
+    position: absolute;
+    right: -45px;
+    bottom: 36px;
 }
 
 .first-shelf img {
@@ -71,6 +78,7 @@ h1 {
     box-sizing: border-box;
     border: 9px #4d3641 solid;
     justify-content: flex-start;
+    min-height: 260px;
 }
 
 .book {
@@ -98,6 +106,18 @@ h2 {
     width: 0;
 }
 
+.remove {
+    width: 6rem;
+    height: 1.5rem;
+    background-color: #54101d;
+    color: #d5c5ae;
+    border: 1px solid #4d3641;
+}
+
+.remove:hover {
+    background-color: #91061f;
+}
+
 .checkmark {
     display: inline-block;
     top: 0;
@@ -107,12 +127,19 @@ h2 {
     background-color: red;
 }
 
+dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 dialog[open] {
     background-color: #d5c5ae;
     border: 10px #b18653 solid;
     border-radius: 20px;
     width: 50%;
-    height: 15rem;
+    height: 17rem;
     text-align: center;
     padding: 20px 0;
 }
@@ -129,4 +156,34 @@ dialog[open] {
 dialog::backdrop {
     background-color: #f5d018;
     opacity: .3;
+}
+
+#popout-form {
+    display: flex;
+    flex-direction: column;   
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popout-form input {
+    width: 25rem;
+    height: 1.7rem;
+    border-radius: 8px;
+    border: 1px solid #47596f;   
+}
+
+#popout-form label {
+    width: 14rem;
+}
+
+input[type="submit"] {
+    background-color: #1a5a17;
+    color: #d5c5ae;
+    font-weight: 700;
 }

@@ -1,6 +1,6 @@
 const myLibrary = [
-    {title: "Virion. Wyrocznia. Tom 1", author: "Andrzej Ziemianski", pages: 506, read: true},
-    {title: "Odrobina magii",author: "Agnieszka Olejnik", pages: 400, read: false}
+    {title: "Virion. Wyrocznia. Tom 1", author: "Andrzej Ziemianski", pages: 14.45, read: true},
+    {title: "Odrobina magii", author: "Agnieszka Olejnik", pages: 10.36, read: false},
 ];
 
 function Book(title, author, pages, read) {
@@ -10,9 +10,30 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.getInfo = function() {
-    return this.title + ", " + this.author + ", " + this.pages + ", " + this.read;
-};
+
+
+function storeUserInput() {
+    const form =  document.querySelector("form");
+    const formData = new FormData(form);
+
+    for (item of formData) {
+        console.log(item[0], item[1]);
+    }
+
+    console.log(formData);
+
+    // let userBook = {};
+    // const inputTitle = document.getElementById("title").value;
+    // console.log(inputTitle);
+    // userBook.push(inputTitle);
+
+    // const inputAuthor = document.getElementById("author").value;
+    // const inputPages = document.getElementById("pages").value;
+    // // const inputRead = document.getElementById("read").value;
+
+    // myLibrary.push(userBook);
+    // console.log(myLibrary);
+}
 
 const virion = new Book("Virion. Wyrocznia. Tom 1", "Andrzej Ziemianski", 506, true);
 const wypiekiDefensywne = new Book("Wypieki defensywne. Przewodnik dla czarodziejów i czarodziejek","Kingfisher T.", 336, true);
@@ -36,7 +57,7 @@ function displayBook() {
         newBook.appendChild(authorElement);
 
         const pagesElement = document.createElement("p");
-        pagesElement.textContent = book.pages + " pages";
+        pagesElement.textContent = book.pages + " hours";
         newBook.appendChild(pagesElement);
 
         const readElement = document.createElement("p");
@@ -47,19 +68,21 @@ function displayBook() {
         }
         newBook.appendChild(readElement);
 
+        const removeBtn = document.createElement("button");
+        removeBtn.classList.add("remove");
+        removeBtn.textContent = "Remove";
+        newBook.appendChild(removeBtn);
+        removeBtn.addEventListener("click", () => {
+            newBook.remove();
+        })
+
         container.appendChild(newBook);
     };  
 }
 
-   
-    
-
-function addDivForNewBook() {
-    const container = document.querySelector(".book-shelf");
-    const newBook = document.createElement("div");
-    newBook.classList.add("book");
-    container.appendChild(newBook);
-}
+// Book.prototype.getInfo = function() {
+//     return this.title + ", " + this.author + ", " + this.pages + ", " + this.read;
+// };
 
 function showDialog() {
     const dialog = document.querySelector("dialog");
@@ -67,15 +90,22 @@ function showDialog() {
     dialog.showModal();
     closeBtn.addEventListener("click", () => {
         dialog.close();
-    })
+    });
+    document.getElementById("submit").addEventListener("click", function(event) {
+        event.preventDefault();
+        dialog.close();
+    });
 }
 
-
+function removeBook() {
+    const newBook = document.querySelector(".book");
+    newBook.remove();
+}
 
 // myLibrary.push(virion);
 // console.log(virion.getInfo());
 
 
-
 displayBook();
 document.querySelector(".add").addEventListener("click", showDialog);
+document.querySelector("#submit").addEventListener("click", storeUserInput);
