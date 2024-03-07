@@ -54,7 +54,6 @@ h1 {
 .first-shelf {
     display: flex;
     justify-content: space-between;
-    flex: 1;
     flex-wrap: nowrap;
     box-sizing: border-box;
     border: 9px #4d3641 solid;
@@ -85,19 +84,22 @@ h1 {
     background-color: #b18653;
     width: calc(calc(100% / 4) - 20px);
     min-width: 200px;
-    height: 15rem;
+    height: 18rem;
     border:5px #54101d solid;
     margin: 5px;
     box-sizing: border-box;
     overflow-wrap: break-word;
     line-height: 1.8;
     padding: 10px;
+    display: flex;
+    flex-direction: column;    
 }
 
 h2 {
     font-size: 20px;
     font-weight: 800;
 }
+
 .read-box input {
     position: absolute;
     opacity: 0;
@@ -112,20 +114,19 @@ h2 {
     background-color: #54101d;
     color: #d5c5ae;
     border: 1px solid #4d3641;
+    margin-top: auto;
+    margin-left: auto;
 }
 
 .remove:hover {
     background-color: #91061f;
 }
 
-.checkmark {
-    display: inline-block;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: red;
+.readask {
+    display: flex;
+    gap: 20px;
 }
+
 
 dialog {
     position: fixed;
@@ -142,15 +143,19 @@ dialog[open] {
     height: 17rem;
     text-align: center;
     padding: 20px 0;
+    position: relative;
 }
 
 .close {
-    padding: 7px;
+    padding: 10px;
     font-size: 10px;
     border-radius: 40%;
     background-color: #54101d;
     color: #d5c5ae;
     border: none;
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 
 dialog::backdrop {
@@ -161,7 +166,7 @@ dialog::backdrop {
 #popout-form {
     display: flex;
     flex-direction: column;   
-    gap: 15px; 
+    gap: 10px; 
     margin-top: 20px;
 }
 
@@ -186,4 +191,5 @@ input[type="submit"] {
     background-color: #1a5a17;
     color: #d5c5ae;
     font-weight: 700;
+    margin-top: 20px;
 }
