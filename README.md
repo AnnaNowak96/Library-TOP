@@ -1,5 +1,5 @@
 # Library-TOP  
-Project created during The Odin Project course (TOP) 
+Project created during The Odin Project course (TOP)  
 The goal was to create a wirtual library for books that you want to read or you just did it.  
 There were some requirements. User should be able to add new books to the library by clicking a button. In my version there is a popout dialog that appears in the center of the screen with form that have to be filled and checkbox if the book has been read.  
 Every added book displays in the library and can be easly removed by "remove" button.  
